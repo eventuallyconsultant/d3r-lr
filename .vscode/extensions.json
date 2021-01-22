@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "humao.rest-client",
+        "matklad.rust-analyzer",
+        "bungcip.better-toml"
+    ]
+}
