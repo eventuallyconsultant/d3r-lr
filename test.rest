@@ -1,0 +1,31 @@
+
+@host = localhost
+@port = 8080
+
+###
+
+GET http://{{host}}:{{port}} HTTP/1.1
+
+# should return an html page
+
+###
+
+GET http://{{host}}:{{port}}/boite-aux-lettres HTTP/1.1
+
+# perfect !
+
+###
+
+POST http://{{host}}:{{port}}/boite-aux-lettres HTTP/1.1
+
+# Didn't you forget something ?
+# perfect !
+
+### 
+
+POST http://{{host}}:{{port}}/boite-aux-lettres HTTP/1.1
+
+tests@eventuallyconstultant.com
+
+### 
+
