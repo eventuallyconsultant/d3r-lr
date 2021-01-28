@@ -1,15 +1,29 @@
-use tide::prelude::*;
+use askama::Template;
+use askama_tide::into_response;
 use tide::Request;
 
 #[async_std::main]
 async fn main() -> tide::Result<()> {
     let mut app = tide::new();
 
+    app.at("/").get(get_index);
+    app.at("/").serve_dir("public")?;
     app.at("/boite-aux-lettres").get(get_boite_aux_lettres);
     app.at("/boite-aux-lettres").post(post_boite_aux_lettres);
 
     app.listen("127.0.0.1:8080").await?;
     Ok(())
+}
+
+#[derive(Template)]
+#[template(path = "index.html")]
+struct IndexTemplate<'a> {
+    name: &'a str,
+}
+
+async fn get_index(_req: Request<()>) -> tide::Result {
+    let index = IndexTemplate { name: "world" };
+    Ok(into_response(&index, "html").into())
 }
 
 async fn get_boite_aux_lettres(_req: Request<()>) -> tide::Result {
