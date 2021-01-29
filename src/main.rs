@@ -11,7 +11,7 @@ async fn main() -> tide::Result<()> {
     app.at("/boite-aux-lettres").get(get_boite_aux_lettres);
     app.at("/boite-aux-lettres").post(post_boite_aux_lettres);
 
-    app.listen("127.0.0.1:8080").await?;
+    app.listen("0.0.0.0:8080").await?;
     Ok(())
 }
 
