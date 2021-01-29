@@ -10,5 +10,5 @@ edition = "2018"
 tide = "0.15"
 async-std = { version = "1.9", features = ["attributes"] }
 serde = { version = "1.0", features = ["derive"] }
-askama = "0.10.2"
+askama = "0.10.5"
 askama_tide = "0.12.0"
