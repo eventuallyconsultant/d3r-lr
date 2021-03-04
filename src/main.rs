@@ -2,8 +2,25 @@ use askama::Template;
 use askama_tide::into_response;
 use tide::Request;
 
+use structopt::StructOpt;
+
+// #[derive(StructOpt, Debug)]
+// #[structopt(name = "env")]
+// struct Opt {
+//     #[structopt(long, env = "SLACK_API_TOKEN")]
+//     slack_api_token: String,
+// }
+
+// lazy_static::lazy_static! {
+//   static ref SERVER_OPTIONS: Opt = {
+//     Opt::from_args()
+//   };
+// }
+
 #[async_std::main]
 async fn main() -> tide::Result<()> {
+    // dbg!(&SERVER_OPTIONS.slack_api_token);
+
     let mut app = tide::new();
 
     app.at("/").get(get_index);
